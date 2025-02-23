@@ -1,1 +1,14 @@
 practicing on the automation testing 
+
+To install playwright 
+cmd -> npm init -y  playwright@latest
+To install the client side browser
+cmd ->  npx playwright install   
+To run the playwright 
+cmd npx playwright test
+To generate report 
+cmd -> npx playwright show-report
+To run on only one browser
+cmd npx playwright test --project=chromium
+To check the X path ctrl+x
+
