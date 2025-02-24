@@ -1,30 +1,12 @@
-// // @ts-check
-// import { test, expect } from '@playwright/test';
 
-// test('has title', async ({ page }) => {
-//   await page.goto('https://playwright.dev/');
+import { test, expect } from '@playwright/test';
+import Login from '../Helper/loginTesting.js';
 
-//   // Expect a title "to contain" a substring.
-//   await expect(page).toHaveTitle(/Playwright/);
-// });
+test('has title', async ({ page }) => {
+    const login = new Login(page);
 
-// test('get started link', async ({ page }) => {
-//   await page.goto('https://playwright.dev/');
-
-//   // Click the get started link.
-//   await page.getByRole('link', { name: 'Get started' }).click();
-
-//   // Expects page to have a heading with the name of Installation.
-//   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-// });
-import {test, except} from '@playwright/test';
-
-test('has title',async({page})=>{
-   await page.goto('https://testautomationpractice.blogspot.com/');
-   await page.waitForTimeout(2000);
-   await page.locator("//input[@id='name']").fill("gowtham");
-   await page.waitForTimeout(2000);
-   //selecting an element using the css selector
-   await page.locator("//button[@name='start']");
-   
-  })
+    await login.goToUrl("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    await login.loginToTheWebPage("Admin", "admin123");
+    await page.waitForTimeout(2000)
+    await login.menuTraversal();
+});
